@@ -65,10 +65,6 @@ OutIt split(InIt first, InIt last, OutIt target, T splitval, F binfun) {
 测试下性能，竟然通用版本的性能要稍好一点点：
 
 ```c++
-#include <chrono>
-#include <iostream>
-#include <vector>
-
 template <typename TFunc> void RunAndMeasure(const char *title, TFunc func) {
   const auto start = std::chrono::steady_clock::now();
   auto res = func();

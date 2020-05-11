@@ -32,12 +32,9 @@ std::string s = absl::StrJoin(foos, ", ", [](std::string* out, const Foo& foo) {
 使用标准库又该怎么设计呢：
 
 ```c++
-#include <iostream>
-#include <vector>
-
 // generic strjoin
-template <typename InIt, typename T, typename F>
-std::string strjoin(InIt first, InIt last, T separator, F fmt) {
+template <typename InIt, typename F>
+std::string strjoin(InIt first, InIt last, std::string_view sep, F &&fmt) {
   std::string Result{};
   // Append first element
   if (first != last) {
@@ -46,7 +43,7 @@ std::string strjoin(InIt first, InIt last, T separator, F fmt) {
   }
   for (; first != last; ++first) {
     // Add separator
-    Result += separator;
+    Result += sep;
     // Add element
     Result += fmt(*first);
   }
@@ -55,7 +52,8 @@ std::string strjoin(InIt first, InIt last, T separator, F fmt) {
 
 int main() {
   const std::vector<int> v = {1, 2, 3};
-  auto str = strjoin(v.begin(), v.end(), '-', [](int i) { return std::to_string(i); });
+  auto fmt = [](auto i) { return std::to_string(i); };
+  auto str = strjoin(v.begin(), v.end(), "-", fmt);
   std::cout << str << std::endl; // 1-2-3
 
   return 0;
