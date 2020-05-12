@@ -12,6 +12,7 @@
 [Tip of the Week #45: Avoid Flags, Especially in Library Code][TotW045]    
 [Tip of the Week #49: Argument-Dependent Lookup][TotW049]    
 [Tip of the Week #55: Name Counting and unique_ptr][TotW055]    
+
 [Tip of the Week #59: Joining Tuples][TotW059]    
 [Tip of the Week #61: Default Member Initializers][TotW061]    
 [Tip of the Week #64: Raw String Literals][TotW064]    
@@ -23,7 +24,9 @@
 [Tip of the Week #90: Retired Flags][TotW090]    
 [Tip of the Week #93: using absl::Span][TotW093]    
 
- 
+[Tip of the Week #94: Callsite Readability and bool Parameters][TotW094]    
+
+
 [TotW]: https://abseil.io/tips/	"Abseil"
 [TotW001]: tips/TotW001.md
 [TotW003]: tips/TotW003.md
@@ -45,4 +48,5 @@
 [TotW088]: tips/TotW088.md
 [TotW090]: tips/TotW090.md
 [TotW093]: tips/TotW093.md
+[TotW094]: tips/TotW094.md
 
