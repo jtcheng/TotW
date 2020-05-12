@@ -31,8 +31,9 @@ std::map<std::string, std::string> m = absl::StrSplit("a,1,b,2,c,3", ',');
 第一个版本只能处理字符串：
 
 ```c++
-// string split
-void split(std::string_view sv, std::vector<std::string> &output, char splitval = ' ') {
+// string split, return by value
+std::vector<std::string> split(std::string_view sv, char splitval = ' ') {
+  std::vector<std::string> output;
   std::string_view::size_type first = 0, second = 0, length = sv.size();
   while (second != std::string_view::npos && first < length) {
     second = sv.find(splitval, first);
@@ -41,13 +42,14 @@ void split(std::string_view sv, std::vector<std::string> &output, char splitval 
     }
     first = second + 1;
   }
+  return output;
 }
 ```
 
 第二个版本是一个通用版本：
 
 ```c++
-// generic split
+// generic split, return by iterator
 template <typename InIt, typename OutIt, typename T, typename F>
 OutIt split(InIt first, InIt last, OutIt target, T splitval, F binfun) {
   InIt second = first;
@@ -62,7 +64,7 @@ OutIt split(InIt first, InIt last, OutIt target, T splitval, F binfun) {
 }
 ```
 
-测试下性能，竟然通用版本的性能要稍好一点点：
+测试下性能，竟然通用版本的性能还要稍好一点点：
 
 ```c++
 template <typename TFunc> void RunAndMeasure(const char *title, TFunc func) {
@@ -76,19 +78,17 @@ template <typename TFunc> void RunAndMeasure(const char *title, TFunc func) {
 
 int main(int argc, const char **argv) {
   const int ITERS = argc > 1 ? atoi(argv[1]) : 10000;
-  const std::string str{
-      "  q w e r t y u i o p a s d  f g h j k l z x c v b n m  "};
+  const std::string str{"  q w e r t y u i o p a s d  f g h j k l z x c v b n m  "};
 
-  RunAndMeasure("string_view split", [ITERS, &str]() {
+  RunAndMeasure("string split", [ITERS, &str]() {
     std::size_t sizes = 0;
     for (int i = 0; i < ITERS; ++i) {
-      std::vector<std::string> output;
-      split(str, output, ' ');
+      auto output = split(str, ' ');
       sizes += output.size();
     }
     return sizes;
   });
-  // string_view split: 12.4279 ms, res 260000
+  // string split: 12.4279 ms, res 260000
 
   RunAndMeasure("generic split", [ITERS, &str]() {
     auto binfun = [](auto first, auto second) {

@@ -9,11 +9,11 @@ s = absl::StrJoin(std::make_tuple(123, "abc", 0.456), "-");
 int a = 123;
 std::string b = "abc";
 double c = 0.456;
-// Works, but copies all arguments.
+// Works, but copies all arguments
 s = absl::StrJoin(std::make_tuple(a, b, c), "-");
-// No copies, but only works with lvalues.
+// No copies, but only works with lvalues
 s = absl::StrJoin(std::tie(a, b, c), "-");
-// No copies, and works with lvalues and rvalues.
+// No copies, and works with lvalues and rvalues
 s = absl::StrJoin(std::forward_as_tuple(123, MakeFoo(), c), "-");
 
 // user defined formatter

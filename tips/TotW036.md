@@ -1,6 +1,6 @@
 ## Tip of the Week #36: New Join API
 
-新的 `join API` ，这个和字符串的拼接有些类似：
+`abseil` 库新的 `join API` ，这个和字符串拼接有些类似：
 
 ```c++
 std::vector<std::string> v = {"a", "b", "c"};

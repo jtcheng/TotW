@@ -15,7 +15,7 @@ std::string bar = LongString2();
 std::string foobar = absl::StrCat(foo, bar);
 ```
 
-当拼接多个字符串的时候，情况变得不同了，使用 `abseil` 库性能更好：
+当拼接多个字符串的时候，使用 `abseil` 库性能更好：
 
 ```c++
 std::string foo = LongString1();
@@ -35,8 +35,8 @@ std::string foobar = absl::StrCat(foo, bar, baz);
 
 当使用标准库来拼接多个字符串的时候：
 
-- 使用 `string::reserve` 来避免由于 `string::capacity` 不够而导致的内存重分配问题。
-- 使用 `string::append` 来避免由于 `string::operator+` 无法处理多个字符串的问题。
+1. 使用 `string::reserve` 来避免由于 `string::capacity` 不够而导致的内存重分配问题
+2. 使用 `string::append` 来避免由于 `string::operator+` 无法高效拼接三个以上字符串的问题
 
 ```c++
 std::string foo{"qwertyuiop"};

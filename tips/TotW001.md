@@ -28,13 +28,13 @@ void AlreadyHasString(const string& s) {
   TakesStringView(s);  // no explicit conversion, convenient
 }
 void AlreadyHasCharStar(const char* s) {
-  TakesStringView(s);  // no copy, efficient, but calls strlen(s) O(n)
+  TakesStringView(s);  // no copy, efficient, but calls strlen(s), O(n)
 }
 ```
 
-`string_view` 是其背后实际字符串的一个只读视图，不拥有实际字符串的所有权。在实现上仅仅包含一个指针和一个长度，非常的轻量高效。
+`string_view` 是其背后实际字符串的一个只读视图，不拥有实际字符串的所有权。在实现上仅仅包含一个指针和一个长度，非常的轻量高效，可以按值传递。
 
-`string_view` 支持丰富的操作，但也有一些注意事项：
+`string_view` 支持丰富的操作，下面是一些注意事项：
 
 ```c++
 // string_view is not necessarily NUL-terminated

@@ -13,6 +13,15 @@
 [Tip of the Week #49: Argument-Dependent Lookup][TotW049]    
 [Tip of the Week #55: Name Counting and unique_ptr][TotW055]    
 [Tip of the Week #59: Joining Tuples][TotW059]    
+[Tip of the Week #61: Default Member Initializers][TotW061]    
+[Tip of the Week #64: Raw String Literals][TotW064]    
+[Tip of the Week #65: Putting Things in their Place][TotW065]    
+[Tip of the Week #74: Delegating and Inheriting Constructors][TotW074]    
+[Tip of the Week #77: Temporaries, Moves, and Copies][TotW077]    
+[Tip of the Week #86: Enumerating with Class][TotW086]    
+[Tip of the Week #88: Initialization: =, (), and {}][TotW088]    
+[Tip of the Week #90: Retired Flags][TotW090]    
+[Tip of the Week #93: using absl::Span][TotW093]    
 
  
 [TotW]: https://abseil.io/tips/	"Abseil"
@@ -27,4 +36,13 @@
 [TotW049]: tips/TotW049.md
 [TotW055]: tips/TotW055.md
 [TotW059]: tips/TotW059.md
+[TotW061]: tips/TotW061.md
+[TotW064]: tips/TotW064.md
+[TotW065]: tips/TotW065.md
+[TotW074]: tips/TotW074.md
+[TotW077]: tips/TotW077.md
+[TotW086]: tips/TotW086.md
+[TotW088]: tips/TotW088.md
+[TotW090]: tips/TotW090.md
+[TotW093]: tips/TotW093.md
 
