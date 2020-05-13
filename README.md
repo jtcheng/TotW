@@ -25,6 +25,10 @@
 [Tip of the Week #93: using absl::Span][TotW093]    
 
 [Tip of the Week #94: Callsite Readability and bool Parameters][TotW094]    
+[Tip of the Week #99: Nonmember Interface Etiquette][TotW099]    
+[Tip of the Week #101: Return Values, References, and Lifetimes][TotW101]    
+[Tip of the Week #103: Flags Are Globals][TotW103]    
+[Tip of the Week #107: Reference Lifetime Extension][TotW107]    
 
 
 [TotW]: https://abseil.io/tips/	"Abseil"
@@ -49,4 +53,8 @@
 [TotW090]: tips/TotW090.md
 [TotW093]: tips/TotW093.md
 [TotW094]: tips/TotW094.md
+[TotW099]: tips/TotW099.md
+[TotW101]: tips/TotW101.md
+[TotW103]: tips/TotW103.md
+[TotW107]: tips/TotW107.md
 

@@ -33,7 +33,7 @@ void test() {
 
 ### 参数依赖查找
 
-如果函数有入参，会直接在入参相关联的名称空间下查找函数名，比如 `func(a::A<b::B, c::internal::C*>)` 会在入参相关联的 `a, b, c::internal` 作用域下查找函数。
+如果函数有入参，会直接在入参相关联的名称空间下查找函数名，比如 `func(a::A<b::B, c::internal::C*>)` 会在入参相关联的 `a, b, c::internal` 所在的名称空间下查找函数。
 
 ```c++
 namespace aspace {
